@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Aniversário da Manu 🎂</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1051/1051277.png" type="image/png">
+    <style>
+        :root {
+            --party-color: #8800ff;
+            --bg-color: #1a1a1a;
+            --text-color: #fff;
+            --button-hover: #b300ff;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            transition: background 0.5s ease-in-out;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--party-color);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--party-color), 0 0 20px var(--party-color);
+        }
+        .console {
+            background: black;
+            color: lime;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            height: 150px;
+            overflow: hidden;
+            white-space: pre-line;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .hidden {
+            display: none;
+        }
+        .btn {
+            background: linear-gradient(135deg, #8800ff, #5500aa);
+            border: none;
+            padding: 12px 25px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 10px #8800ff, 0 0 20px #5500aa;
+        }
+        .btn:hover {
+            background: var(--button-hover);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #b300ff, 0 0 30px #8800ff;
+        }
+        /* Novo Fundo Geek */
+        .geek-bg {
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill="%238800ff" fill-opacity="0.1"%3E%3Cpath d="M20 20h20v20H20zM60 20h20v20H60zM20 60h20v20H20zM60 60h20v20H60z"/%3E%3Cpath d="M40 40h20v20H40z"/%3E%3Cpath d="M0 0h10v10H0zM90 0h10v10H90zM0 90h10v10H0zM90 90h10v10H90z"/%3E%3C/g%3E%3C/svg%3E');
+            background-size: 50px 50px;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Bem-vindo ao meu site de aniversário! 🎂</h1>
+    <div class="console" id="console">
+        > Inicializando o site da Manu...
+    </div>
+    <button class="btn hidden" id="startBtn">Aplicar Estilos 🎨</button>
+    <script>
+        const consoleEl = document.getElementById("console");
+        const startBtn = document.getElementById("startBtn");
+        const messages = [
+            " > Carregando front-end...",
+            " > Erro 404: Bolo não encontrado! 🎂",
+            " > Renderizando festa.js... ✅",
+            " > Pressione o botão abaixo para começar a festa!"
+        ];
+        let index = 0;
+        function typeMessage() {
+            if (index < messages.length) {
+                consoleEl.innerHTML += "\n" + messages[index];
+                index++;
+                setTimeout(typeMessage, 1500);
+            } else {
+                startBtn.classList.remove("hidden");
+            }
+        }
+        setTimeout(typeMessage, 1500);
+        startBtn.addEventListener("click", () => {
+            document.body.classList.add("geek-bg");
+            consoleEl.innerHTML = "🎉 Aniversário da Manu! 🎂\nFront-end, programadora e aniversariante do dia!";
+        });
+        console.log("Se você chegou até aqui, merece um brinde especial! 🎁");
+    </script>
+</body>
+</html>
