@@ -3,53 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Aniversário da Manu 🎂</title>
+    <title>🎉 Manu | Lvl 19 Desbloqueado! 🚀</title>
     <!-- Favicon -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1051/1051277.png" type="image/png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --party-color: #8800ff;
-            --bg-color: #1a1a1a;
-            --text-color: #fff;
-            --button-hover: #b300ff;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Poppins', monospace;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e293b, #4b5563);
+            color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             text-align: center;
-            transition: background 0.5s ease-in-out;
         }
         h1 {
-            font-size: 2.5rem;
-            color: var(--party-color);
+            font-size: 3rem;
+            color: #9333ea;
+            text-shadow: 0 0 10px #9333ea, 0 0 20px #7c3aed;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px var(--party-color), 0 0 20px var(--party-color);
         }
         .console {
-            background: black;
-            color: lime;
-            padding: 20px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 600px;
-            text-align: left;
-            height: 150px;
-            overflow: hidden;
-            white-space: pre-line;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        }
-        .hidden {
-            display: none;
-        }
+        background: #0f172a;
+        color: #22c55e;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 600px;
+        text-align: left;
+        height: 200px;
+        overflow-x: auto; /* Adiciona rolagem horizontal */
+        white-space: nowrap; /* Impede quebra de linha */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        font-family: 'Courier New', Courier, monospace;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
         .btn {
-            background: linear-gradient(135deg, #8800ff, #5500aa);
+            background: linear-gradient(135deg, #9333ea, #7c3aed);
             border: none;
             padding: 12px 25px;
             margin-top: 20px;
@@ -60,52 +57,74 @@
             text-transform: uppercase;
             font-weight: bold;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 0 10px #8800ff, 0 0 20px #5500aa;
+            box-shadow: 0 0 10px #9333ea, 0 0 20px #7c3aed;
         }
         .btn:hover {
-            background: var(--button-hover);
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             transform: scale(1.1);
-            box-shadow: 0 0 15px #b300ff, 0 0 30px #8800ff;
+            box-shadow: 0 0 15px #7c3aed, 0 0 30px #6d28d9;
         }
-        /* Novo Fundo Geek */
-        .geek-bg {
-            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill="%238800ff" fill-opacity="0.1"%3E%3Cpath d="M20 20h20v20H20zM60 20h20v20H60zM20 60h20v20H20zM60 60h20v20H60z"/%3E%3Cpath d="M40 40h20v20H40z"/%3E%3Cpath d="M0 0h10v10H0zM90 0h10v10H90zM0 90h10v10H0zM90 90h10v10H90z"/%3E%3C/g%3E%3C/svg%3E');
-            background-size: 50px 50px;
-            background-repeat: repeat;
+        /* Animação de brilho no título */
+        h1 {
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #9333ea, 0 0 20px #7c3aed, 0 0 30px #9333ea;
+            }
+            to {
+                text-shadow: 0 0 20px #9333ea, 0 0 30px #7c3aed, 0 0 40px #9333ea;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>🎉 Bem-vindo ao meu site de aniversário! 🎂</h1>
-    <div class="console" id="console">
+    <!-- Título -->
+    <h1>🎂 Debugging da Vida: Mais um Ano Conquistado! 🖥️</h1>
+
+    <!-- Console -->
+    <div id="console" class="console">
         > Inicializando o site da Manu...
     </div>
-    <button class="btn hidden" id="startBtn">Aplicar Estilos 🎨</button>
+
+    <!-- Botão -->
+    <button id="startBtn" class="btn hidden">
+        🚀 Próxima Fase! 
+    </button>
+
     <script>
         const consoleEl = document.getElementById("console");
         const startBtn = document.getElementById("startBtn");
         const messages = [
-            " > Carregando front-end...",
-            " > Erro 404: Bolo não encontrado! 🎂",
-            " > Renderizando festa.js... ✅",
-            " > Pressione o botão abaixo para começar a festa!"
+            " <br> > Carregando sistema operacional da vida... 🖥️",
+            " > Atualizando versão: lvl 19 desbloqueado! 🎉",
+            " > Conquista desbloqueada: Mais responsabilidade! 🏆",
+            " > Pressione o botão abaixo para iniciar a próxima fase! 🚀"
         ];
         let index = 0;
+    
         function typeMessage() {
             if (index < messages.length) {
-                consoleEl.innerHTML += "\n" + messages[index];
+                consoleEl.innerHTML += messages[index] + "<br>";
                 index++;
                 setTimeout(typeMessage, 1500);
             } else {
                 startBtn.classList.remove("hidden");
             }
         }
+    
         setTimeout(typeMessage, 1500);
+    
         startBtn.addEventListener("click", () => {
-            document.body.classList.add("geek-bg");
-            consoleEl.innerHTML = "🎉 Aniversário da Manu! 🎂\nFront-end, programadora e aniversariante do dia!";
+            document.body.style.background = "linear-gradient(135deg, #1e293b, #9333ea)";
+            consoleEl.style.textAlign = "center"; // Centraliza os textos no console
+            consoleEl.innerHTML = `
+                🎉 Sistema atualizado com sucesso! 🎂<br>
+                <strong>Nova habilidade desbloqueada:</strong> Resolver bugs <br>
+                <em>Missão ativa:</em> Dominar o mundo da programação! 🌐<br>
+            `;
+            startBtn.classList.add("hidden"); // Esconde o botão após o clique
         });
-        console.log("Se você chegou até aqui, merece um brinde especial! 🎁");
     </script>
 </body>
 </html>
