@@ -21,36 +21,38 @@
             min-height: 100vh;
             margin: 0;
             text-align: center;
+            padding: 10px; /* Adicionado para evitar cortes em telas pequenas */
         }
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #9333ea;
             text-shadow: 0 0 10px #9333ea, 0 0 20px #7c3aed;
             margin-bottom: 20px;
         }
         .console {
-        background: #0f172a;
-        color: #22c55e;
-        padding: 20px;
-        border-radius: 10px;
-        width: 90%;
-        max-width: 600px;
-        text-align: left;
-        height: 200px;
-        overflow-x: auto; /* Adiciona rolagem horizontal */
-        white-space: nowrap; /* Impede quebra de linha */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        font-family: 'Courier New', Courier, monospace;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+            background: #0f172a;
+            color: #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%; /* Garante que ocupe toda a largura */
+            max-width: 600px; /* Limita o tamanho máximo em telas maiores */
+            text-align: left;
+            height: auto; /* Ajusta a altura automaticamente */
+            min-height: 150px; /* Define uma altura mínima */
+            overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+            white-space: pre-wrap; /* Permite quebra de linha para evitar estouro */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
         .btn {
             background: linear-gradient(135deg, #9333ea, #7c3aed);
             border: none;
             padding: 12px 25px;
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 1em; /* Reduzido para melhor adaptação no mobile */
             cursor: pointer;
             border-radius: 5px;
             color: #fff;
@@ -64,7 +66,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 15px #7c3aed, 0 0 30px #6d28d9;
         }
-        /* Animação de brilho no título */
         h1 {
             animation: glow 1.5s infinite alternate;
         }
@@ -76,6 +77,23 @@
                 text-shadow: 0 0 20px #9333ea, 0 0 30px #7c3aed, 0 0 40px #9333ea;
             }
         }
+        /* Media Query para telas menores */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem; /* Reduz ainda mais o tamanho do título */
+                margin-bottom: 15px; /* Ajusta o espaçamento inferior */
+            }
+            .console {
+                min-height: 120px; /* Reduz a altura mínima no mobile */
+                font-size: 0.9em; /* Ajusta o tamanho da fonte */
+                padding: 10px; /* Reduz o padding interno */
+            }
+            .btn {
+                font-size: 0.8em; /* Ajusta o tamanho do botão */
+                padding: 8px 18px; /* Ajusta o padding do botão */
+                margin-top: 15px; /* Ajusta o espaçamento superior */
+            }
+        }
     </style>
 </head>
 <body>
@@ -83,9 +101,7 @@
     <h1>🎂 Debugging da Vida: Mais um Ano Conquistado! 🖥️</h1>
 
     <!-- Console -->
-    <div id="console" class="console">
-        > Inicializando o site da Manu...
-    </div>
+    <div id="console" class="console"> > Inicializando o site da Manu...</div>
 
     <!-- Botão -->
     <button id="startBtn" class="btn hidden">
@@ -96,7 +112,7 @@
         const consoleEl = document.getElementById("console");
         const startBtn = document.getElementById("startBtn");
         const messages = [
-            " <br> > Carregando sistema operacional da vida... 🖥️",
+            "<br> > Carregando sistema operacional da vida... 🖥️",
             " > Atualizando versão: lvl 19 desbloqueado! 🎉",
             " > Conquista desbloqueada: Mais responsabilidade! 🏆",
             " > Pressione o botão abaixo para iniciar a próxima fase! 🚀"
@@ -117,13 +133,12 @@
     
         startBtn.addEventListener("click", () => {
             document.body.style.background = "linear-gradient(135deg, #1e293b, #9333ea)";
-            consoleEl.style.textAlign = "center"; // Centraliza os textos no console
-            consoleEl.innerHTML = `
-                🎉 Sistema atualizado com sucesso! 🎂<br>
+            consoleEl.style.textAlign = "center";
+            consoleEl.innerHTML = ` 🎉 Sistema atualizado com sucesso! 🎂<br>
                 <strong>Nova habilidade desbloqueada:</strong> Resolver bugs <br>
                 <em>Missão ativa:</em> Dominar o mundo da programação! 🌐<br>
             `;
-            startBtn.classList.add("hidden"); // Esconde o botão após o clique
+            startBtn.classList.add("hidden");
         });
     </script>
 </body>
