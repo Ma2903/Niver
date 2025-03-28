@@ -10,9 +10,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #000; /* Fundo sólido semelhante ao rodapé */
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Adiciona uma leve sombra */
+            z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1e293b, #4b5563);
+            background: linear-gradient(135deg, #2d2d2d, #4c1d95, #6d28d9, #9333ea, #2d2d2d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -21,38 +38,49 @@
             min-height: 100vh;
             margin: 0;
             text-align: center;
-            padding: 10px; /* Adicionado para evitar cortes em telas pequenas */
+            padding: 10px;
         }
+
         h1 {
-            font-size: 2.5rem;
-            color: #9333ea;
-            text-shadow: 0 0 10px #9333ea, 0 0 20px #7c3aed;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            color: #ffffff; /* Cor branca para maior contraste */
+            text-shadow: 
+                0 0 10px #ffffff, /* Brilho branco */
+                0 0 20px #ff00ff, /* Brilho rosa */
+                0 0 30px #9333ea, /* Brilho roxo */
+                0 0 40px #7c3aed, 
+                0 0 50px #6d28d9; /* Tons da paleta */
+            margin-bottom: 30px !important;
+            animation: fadeIn 2s ease-in-out, glow 1.5s infinite alternate;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
+
         .console {
             background: #0f172a;
             color: #22c55e;
             padding: 20px;
             border-radius: 10px;
-            width: 100%; /* Garante que ocupe toda a largura */
-            max-width: 600px; /* Limita o tamanho máximo em telas maiores */
+            width: 100%;
+            max-width: 600px;
             text-align: left;
-            height: auto; /* Ajusta a altura automaticamente */
-            min-height: 150px; /* Define uma altura mínima */
-            overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
-            white-space: pre-wrap; /* Permite quebra de linha para evitar estouro */
+            height: auto;
+            min-height: 150px;
+            overflow-x: auto;
+            white-space: pre-wrap;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
         }
+
         .btn {
             background: linear-gradient(135deg, #9333ea, #7c3aed);
             border: none;
             padding: 12px 25px;
             margin-top: 20px;
-            font-size: 1em; /* Reduzido para melhor adaptação no mobile */
+            font-size: 1em;
             cursor: pointer;
             border-radius: 5px;
             color: #fff;
@@ -61,76 +89,181 @@
             transition: all 0.3s ease-in-out;
             box-shadow: 0 0 10px #9333ea, 0 0 20px #7c3aed;
         }
+
+        .btn.hidden {
+            display: none;
+        }
+
         .btn:hover {
             background: linear-gradient(135deg, #7c3aed, #6d28d9);
             transform: scale(1.1);
             box-shadow: 0 0 15px #7c3aed, 0 0 30px #6d28d9;
         }
-        h1 {
-            animation: glow 1.5s infinite alternate;
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
+
         @keyframes glow {
             from {
-                text-shadow: 0 0 10px #9333ea, 0 0 20px #7c3aed, 0 0 30px #9333ea;
+                text-shadow: 
+                    0 0 10px #ffffff, 
+                    0 0 20px #ff00ff, 
+                    0 0 30px #9333ea;
             }
             to {
-                text-shadow: 0 0 20px #9333ea, 0 0 30px #7c3aed, 0 0 40px #9333ea;
+                text-shadow: 
+                    0 0 20px #ffffff, 
+                    0 0 30px #ff00ff, 
+                    0 0 40px #9333ea;
             }
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Media Query para telas menores */
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.8rem; /* Reduz ainda mais o tamanho do título */
-                margin-bottom: 15px; /* Ajusta o espaçamento inferior */
+                font-size: 1.8rem;
             }
             .console {
-                min-height: 120px; /* Reduz a altura mínima no mobile */
-                font-size: 0.9em; /* Ajusta o tamanho da fonte */
-                padding: 10px; /* Reduz o padding interno */
+                min-height: 120px;
+                font-size: 0.9em;
+                padding: 10px;
             }
             .btn {
-                font-size: 0.8em; /* Ajusta o tamanho do botão */
-                padding: 8px 18px; /* Ajusta o padding do botão */
-                margin-top: 15px; /* Ajusta o espaçamento superior */
+                font-size: 0.8em;
+                padding: 8px 18px;
+                margin-top: 15px;
             }
+        }
+
+        /* Rodapé */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #000;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.8em;
+            color: #fff;
+        }
+
+        .icon-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .lock-icon, .unlock-icon {
+            width: 80px;
+            height: 80px;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background: #4b5563;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .progress {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #9333ea, #7c3aed);
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0; }
+            100% { width: 100%; }
         }
     </style>
 </head>
 <body>
+     <!-- Cabeçalho -->
+    <header class="header">
+        <p>🎉 Manu's System 🚀</p>
+    </header>
+
     <!-- Título -->
     <h1>🎂 Debugging da Vida: Mais um Ano Conquistado! 🖥️</h1>
-
+    
     <!-- Console -->
     <div id="console" class="console"> > Inicializando o site da Manu...</div>
+
+    <!-- Barra de progresso -->
+    <div class="progress-bar-container">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
 
     <!-- Botão -->
     <button id="startBtn" class="btn hidden">
         🚀 Próxima Fase! 
     </button>
 
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>Feito com ❤️ por Manu. © 2025</p>
+    </footer>
+
     <script>
         const consoleEl = document.getElementById("console");
         const startBtn = document.getElementById("startBtn");
+        const progressBarContainer = document.querySelector(".progress-bar-container");
+        const progress = document.querySelector(".progress");
         const messages = [
             "<br> > Carregando sistema operacional da vida... 🖥️",
             " > Atualizando versão: lvl 19 desbloqueado! 🎉",
             " > Conquista desbloqueada: Mais responsabilidade! 🏆",
-            " > Pressione o botão abaixo para iniciar a próxima fase! 🚀"
+            " > Preparando para a próxima fase... 🚀"
         ];
         let index = 0;
-    
+
         function typeMessage() {
             if (index < messages.length) {
                 consoleEl.innerHTML += messages[index] + "<br>";
                 index++;
                 setTimeout(typeMessage, 1500);
             } else {
-                startBtn.classList.remove("hidden");
+                // Inicia a animação da barra de progresso
+                progress.style.animation = "loadProgress 5s linear forwards";
+
+                // Garante que o botão seja exibido após a animação
+                setTimeout(() => {
+                    progressBarContainer.style.display = "none"; // Esconde a barra de progresso
+                    startBtn.classList.remove("hidden"); // Mostra o botão
+                }, 5000); // Tempo igual à duração da animação (5s)
             }
         }
-    
+
         setTimeout(typeMessage, 1500);
-    
+
         startBtn.addEventListener("click", () => {
             document.body.style.background = "linear-gradient(135deg, #1e293b, #9333ea)";
             consoleEl.style.textAlign = "center";
